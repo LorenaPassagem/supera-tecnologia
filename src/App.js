@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import db from './api/products.json'
+import AddProduct from './components/AddProduct';
+import { WrapCard, WrapGame, CardImg, GameTitle} from './components/CardGame';
+import LogoStone from './components/LogoStone';
+import ProductPrice from './components/ProductPrice';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>  
+    <LogoStone/>
+    
+        {db.map((a) =>
+        <WrapGame>
+                <WrapCard>
+                  <CardImg src={require(`./assets/${a.image}`).default}></CardImg>
+                  <GameTitle>{a.name}</GameTitle> 
+                  <ProductPrice>{a.price} </ProductPrice>
+                  <AddProduct> Add no carrinho</AddProduct>  
+                </WrapCard>    
+        </WrapGame> )}
+  </> 
+  )
 }
 
 export default App;
