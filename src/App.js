@@ -12,16 +12,18 @@ return (
   <>      
     <LogoStone/>
     <Qualtidade></Qualtidade>
+    <WrapCard>
       {db.map((a) =>
-        <WrapGame>
-              <WrapCard>
-                  <CardImg src={require(`./assets/${a.image}`).default}>
-                  </CardImg>
-                  <GameTitle>{a.name} </GameTitle>
-                  <ProductPrice>{a.price} </ProductPrice>
-                  <AddProduct> </AddProduct>
-              </WrapCard>                  
-        </WrapGame> )}
+        <WrapGame>              
+              <CardImg src={require(`./assets/${a.image}`).default}>
+              </CardImg>
+              <GameTitle>{a.name} </GameTitle>
+              <ProductPrice>{a.price} </ProductPrice>
+              <AddProduct> </AddProduct>
+        </WrapGame>
+      )}
+      </WrapCard>
+         
   </> 
   )
 }
